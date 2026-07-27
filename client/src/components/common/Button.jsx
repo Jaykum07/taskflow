@@ -16,7 +16,7 @@ const Button = (props) => {
 
   return (
     <button
-      className={`rounded-lg px-4 py-2 font-medium transition duration-200 ${variants[variant]} ${className}`}
+      className={`rounded-lg px-4 py-2 font-medium transition duration-200 cursor-pointer ${variants[variant]} ${className}`}
       type={type}
       disabled={disabled}
       onClick={onClick}

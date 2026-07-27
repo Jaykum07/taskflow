@@ -24,3 +24,11 @@ Build a modern task management application with an intuitive Kanban interface.
 - Drag & Drop
 - Search
 - Filter
+
+## Progress
+
+✅ Project Setup
+
+✅ Routing
+
+✅ Authentication UI

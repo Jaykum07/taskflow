@@ -5,76 +5,86 @@ import Input from "../../components/common/Input";
 import logo from "../../assets/logo1.png";
 
 const Register = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
 
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
-  const handlePassword = (e) => {
-    setPassword(e.target.value);
-  };
-  const handleName = (e) => {
-    setName(e.target.value);
-  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email);
-    console.log(password);
+    console.log(formData);
   };
   return (
     <div className="min-h-screen flex items-center justify-center bg-slate-100">
       <div className="w-full max-w-md rounded-xl bg-white p-8 shadow-lg">
         <div className="mb-4 flex flex-col items-center">
-          <img src={logo} alt="TaskFlow Logo" className="h-25 w-25" />
+          <img src={logo} alt="TaskFlow Logo" className="h-24 w-24" />
 
           <h2 className="text-3xl font-bold tracking-tight text-slate-900">
             TaskFlow
           </h2>
         </div>
 
-        <div className="mb-5 ">
-          <p className="mt-2 text-slate-500">Create Account</p>
+        <div className="mb-3 text-center">
+          <p className="mt-2 text-black">
+            Create your account to start organizing your tasks.
+          </p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-5">
           <Input
+            name="name"
             label="Name"
             type="text"
             placeholder="Enter your name"
-            value={name}
-            onChange={handleName}
+            value={formData.name}
+            onChange={handleChange}
             required
           />
 
           <Input
+            name="email"
             label="Email"
             type="email"
             placeholder="Enter your email"
-            value={email}
-            onChange={handleEmail}
+            value={formData.email}
+            onChange={handleChange}
             required
           />
 
           <Input
+            name="password"
             label="Password"
             type="password"
             placeholder="Enter your password"
-            value={password}
-            onChange={handlePassword}
+            value={formData.password}
+            onChange={handleChange}
             required
           />
 
           <Input
+            name="confirmPassword"
             label="Confirm Password"
             type="password"
             placeholder="Enter your password"
+            value={formData.confirmPassword}
+            onChange={handleChange}
             required
           />
 
           <Button type="submit" className="w-full">
-            Register
+            Create Account
           </Button>
 
           <p className="text-center text-sm">

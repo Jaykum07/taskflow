@@ -1,5 +1,6 @@
 const Input = ({
     label,
+    name ="",
     type = "text",
     placeholder,
     value,
@@ -23,6 +24,7 @@ const Input = ({
           value={value}
           onChange={onChange}
           required={required}
+          name={name}
           className={`border rounded-lg px-3 py-2 outline-none focus:ring-2 focus:ring-indigo-500 ${className}`}
         />
   
